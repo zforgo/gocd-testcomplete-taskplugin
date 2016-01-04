@@ -1,0 +1,46 @@
+<div class="form_item_block">
+	<label>Executable:<span class="asterisk">*</span></label>
+	<select ng-model="Executable" style="float: left;" ng-required="true">
+		<option value="">-- Choose Executable --</option>
+		<option value="TestComplete">TestComplete</option>
+		<option value="TestExecute">TestExecute</option>
+	</select>
+	<span class="form_error"
+		  ng-show="GOINPUTNAME[Executable].$error.server">{{ GOINPUTNAME[Executable].$error.server }}</span>
+</div>
+<div class="form_item_block">
+	<label>Path:<span class="asterisk">*</span></label>
+	<input type="text" ng-model="ApplicationPath" ng-required="true" value="{{ApplicationPath}}"/>
+	<span class="form_error" ng-show="GOINPUTNAME[ApplicationPath].$error.server">{{ GOINPUTNAME[ApplicationPath].$error.server }}</span>
+</div>
+<div class="form_item_block">
+	<label>Working directory:</label>
+	<input type="text" ng-model="WorkingDirectory" ng-required="true" value="{{WorkingDirectory}}"/>
+	<span class="form_error" ng-show="GOINPUTNAME[WorkingDirectory].$error.server">{{ GOINPUTNAME[WorkingDirectory].$error.server }}</span>
+</div>
+<div class="form_item_block">
+	<label>Suite:<span class="asterisk">*</span></label>
+	<input type="text" ng-model="SuitePath" ng-required="true" value="{{SuitePath}}"/>
+	<span class="form_error"
+		  ng-show="GOINPUTNAME[SuitePath].$error.server">{{ GOINPUTNAME[SuitePath].$error.server }}</span>
+</div>
+
+<div class="form_item_block">
+	<div class="checkbox_row">
+		<input id="env2"
+			   type="checkbox"
+			   ng-model="PassEnvironmentTmp"
+			   ng-init="PassEnvironmentTmp = PassEnvironment"
+			   ng-change="PassEnvironment = PassEnvironmentTmp"
+			   ng-true-value="true"
+			   ng-false-value="false">
+		<input id="passenv" type="hidden" ng-model="PassEnvironment" value="{{PassEnvironment}}">
+		<label for="passenv">Pass through pipeline's environment variables.</label>
+	</div>
+</div>
+<div class="form_item_block">
+	<label>Report:</label>
+	<input type="text" ng-model="ReportPath" ng-required="false" value="{{ReportPath}}"/>
+	<span class="form_error"
+		  ng-show="GOINPUTNAME[ReportPath].$error.server">{{ GOINPUTNAME[ReportPath].$error.server }}</span>
+</div>
